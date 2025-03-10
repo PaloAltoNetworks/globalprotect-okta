@@ -286,59 +286,6 @@ resource "aws_s3_object" "xml_config" {
 }
 
 
-
-# resource "tls_private_key" "gp_ca" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
-
-# resource "tls_self_signed_cert" "gp_ca" {
-#   private_key_pem = tls_private_key.gp_ca.private_key_pem
-
-#   subject {
-#     common_name = "okta-panw.test.com"
-#   }
-
-#   validity_period_hours = 8760
-
-#   allowed_uses = [
-#     "key_encipherment",
-#     "digital_signature",
-#     "server_auth",
-#   ]
-# }
-
-# resource "tls_private_key" "gateway" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
-
-# resource "tls_cert_request" "gateway" {
-#   private_key_pem = tls_private_key.gateway.private_key_pem
-
-#   subject {
-#     common_name = aws_eip.this["public"].public_ip
-#   }
-# }
-
-# resource "tls_locally_signed_cert" "gateway" {
-#   cert_request_pem   = tls_cert_request.gateway.cert_request_pem
-#   ca_private_key_pem = tls_private_key.gp_ca.private_key_pem
-#   ca_cert_pem        = tls_self_signed_cert.gp_ca.cert_pem
-
-#   validity_period_hours = 8760
-
-#   allowed_uses = [
-#     "key_encipherment",
-#     "digital_signature",
-#     "server_auth",
-#   ]
-# }
-
-# <entity-id>http://www.okta.com/exk1um8muqnHmThiz1d8</entity-id> saml_entity_id
-# <sso-url>https://panw-aws-integration.okta.com/app/panw_globalprotect/exk1um8muqnHmThiz1d8/sso/saml</sso-url> saml_sso_url
-# <ipv4>54.195.4.99</ipv4>  gp_gateway
-
 ### VM-Series INSTANCES
 
 locals {
